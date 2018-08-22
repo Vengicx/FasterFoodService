@@ -1,0 +1,10 @@
+body {
+    background: url('../images/bgWood.jpg') fixed no-repeat;
+}
+
+#cardLogin {
+        margin: 100px auto;
+        width: 300px;
+        text-align: center;
+        
+}

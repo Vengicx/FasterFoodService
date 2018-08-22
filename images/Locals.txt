@@ -1,0 +1,2 @@
+bgWood.jpg = http://bsnscb.com/madeira-wallpapers/38763457.html
+errorPizza.jpg = https://www.google.com.br/search?q=pizza+triste&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjjvP7929ncAhVFx1kKHYa0BHEQ_AUICigB&biw=1366&bih=631#imgdii=-t4zWuxTQ_hnLM:&imgrc=5ciuR56VFUjBUM:
