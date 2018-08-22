@@ -7,10 +7,9 @@
 	$id = $nome = $login = $email = $ativo = "";
 
 ?>
-
 <h1>Cadastro de Usuário</h1>
 
-<form name="form1" method="post" action="home.php?op=salvar&pg=usuario" data-parsley-validate>
+<form method="post" action="home.php?fd=save&pg=usuario" data-parsley-validate>
 
 	<label for="id">ID:</label>
 	<input type="text" name="id" class="form-control" readonly value="<?=$id;?>">
@@ -30,21 +29,33 @@
 	<br>
 
 	<label for="email">E-mail:</label>
-	<input type="email" name="email" class="form-control" required 
-	data-parsley-required-message="Por favor, digite um e-mail" 
-	data-parsley-type-message="Digite um e-mail válido"
+	<input type="email" name="email" class="form-control" required data-parsley-required-message="Por favor, digite um e-mail" data-parsley-type-message="Digite um e-mail válido"
 	value="<?=$email;?>">
 	<br>
 
-	<label for="ativo">Ativo:</label>
-	<select name="ativo" id="ativo" class="form-control"
-	required data-parsley-required-message="Selecione uma opção">
-		<option value=""></option>
-		<option value="Sim">Sim</option>
-		<option value="Nao">Não</option>
+	<label for="tipoUsuario">Tipo Usuário:</label>
+	<select name="tipoUsuario" id="ativo" class="form-control" required data-parsley-required-message="Selecione uma opção">
+		<option value="">Selecione um tipo de usuário</option>
+		<option value="2">Garçom</option>
+		<option value="3">Cliente</option>
+		<option value="4">Caixa</option>
+		<option value="5">Cozinha</option>
+		<option value="6">Entregador</option>
+		<option value="1">Administrador</option>
 	</select>
 	<br>
 
+	<label class="form-check-label">Status:</label>
+	<div class="form-radio">
+		<div class="form-check">
+	  		<input class="form-check-input" type="radio" name="status" value="1" checked>
+	  		<label class="form-check-label" for="ativo">Ativo</label>
+	  		<br>
+	  		<input class="form-check-input" type="radio" name="status" value="2">
+	  		<label class="form-check-label" for="inativo">Inativo</label>
+		</div>
+	</div>
+	<br>
 	<button type="submit" class="btn btn-success">
 		Gravar/Alterar cadastro
 	</button>
