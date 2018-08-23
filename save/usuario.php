@@ -58,20 +58,20 @@
 
 			include "./app/connect.php";
 			
-			$sql = "insert into usuario (id, nome, login, senha, email, ativo, tipoUsuario) values ?, ?, ?, ?, ?, ?, ?";
+			$sql = "insert into usuario (nome, login, senha, email, ativo, tipoUsuario) values (?, ?, ?, ?, ?, ?)";
 			$query = $pdo->prepare($sql);
-			$query->prepare(1, $nome);
-			$query->prepare(2, $login);
-			$query->prepare(3, $senha);
-			$query->prepare(4, $email);
-			$query->prepare(5, $ativo);
-			$query->prepare(6, $tipoUsuario);
+			$query->bindParam(1, $nome);
+			$query->bindParam(2, $login);
+			$query->bindParam(3, $senha);
+			$query->bindParam(4, $email);
+			$query->bindParam(5, $stauts);
+			$query->bindParam(6, $tipoUsuario);
 
 			if($query->execute()){
-				echo"<script>alert('Usuário cadastrado com sucesso');history.back();</script>";
+				echo "<script>alert('Usuário cadastrado com sucesso');history.back();</script>";
 
 			}else{
-				echo"<script>alert('Erro ao cadastrar usuário')</script>";
+				echo "<script>alert('Erro ao cadastrar usuário');history.back();</script>";
 
 			}
 		}

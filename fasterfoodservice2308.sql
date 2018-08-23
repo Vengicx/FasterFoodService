@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 22-Ago-2018 às 12:30
--- Versão do servidor: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: 23-Ago-2018 às 21:53
+-- Versão do servidor: 10.1.31-MariaDB
+-- PHP Version: 5.6.35
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -85,8 +85,19 @@ CREATE TABLE `produto` (
 CREATE TABLE `tamanho` (
   `id` int(11) NOT NULL,
   `tamanho` varchar(45) NOT NULL,
-  `qtdPedacos` int(11) NOT NULL
+  `qtdPedacos` int(11) NOT NULL,
+  `qtdSabores` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tamanho`
+--
+
+INSERT INTO `tamanho` (`id`, `tamanho`, `qtdPedacos`, `qtdSabores`) VALUES
+(1, 'Pequeno', 8, 1),
+(2, 'Médio', 12, 2),
+(3, 'Grande', 15, 2),
+(4, 'Gigante', 18, 3);
 
 -- --------------------------------------------------------
 
@@ -104,15 +115,17 @@ CREATE TABLE `usuario` (
   `endereco` varchar(150) DEFAULT NULL,
   `telefone` varchar(15) DEFAULT NULL,
   `rg` varchar(9) DEFAULT NULL,
-  `login` varchar(100) NOT NULL
+  `login` varchar(100) NOT NULL,
+  `email` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `nome`, `senha`, `ativo`, `tipoUsuario`, `cpf`, `endereco`, `telefone`, `rg`, `login`) VALUES
-(1, 'Administrador de Sistema', '$2y$10$hynKUzqYPQocrolQDeQOauH7TrAsJ8/q5wUSm0FeNowZfujr7qQ7a', '1', 1, NULL, NULL, NULL, NULL, 'admin');
+INSERT INTO `usuario` (`id`, `nome`, `senha`, `ativo`, `tipoUsuario`, `cpf`, `endereco`, `telefone`, `rg`, `login`, `email`) VALUES
+(1, 'Administrador de Sistema', '$2y$10$hynKUzqYPQocrolQDeQOauH7TrAsJ8/q5wUSm0FeNowZfujr7qQ7a', '1', 1, NULL, NULL, NULL, NULL, 'admin', NULL),
+(2, 'dsds', '$2y$10$xlFWnmdUdADFO9np/OQDnO7bNp/HTGnhkAkjXUW9QrpqsaSAK94uC', '1', 3, NULL, NULL, NULL, NULL, 'dsds', 'ds@ds.com');
 
 -- --------------------------------------------------------
 
@@ -205,13 +218,13 @@ ALTER TABLE `produto`
 -- AUTO_INCREMENT for table `tamanho`
 --
 ALTER TABLE `tamanho`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `venda`

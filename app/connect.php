@@ -8,6 +8,7 @@
 	try {
 		$pdo = new PDO("mysql:host=$server;dbname=$dbname;charset=utf8",$user,$pwd);
 
+
 	} catch (PDOException $error) {
 		echo $error->getMessage();
 		exit;

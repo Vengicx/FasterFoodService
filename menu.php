@@ -21,13 +21,25 @@
 
 		   	<li class="nav-item dropdown">
 		    	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-list" aria-hidden="true"></i> Relatórios
+                <i class="fa fa-bar-chart" aria-hidden="true"></i> Relatórios
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="home.php?fd=relatorios&pg=produtos">Produtos Vendidos</a>
                   <a class="dropdown-item" href="home.php?fd=relatorios&pg=materiaprimas">Matéria-Prima Usadas</a>
                   <a class="dropdown-item" href="home.php?fd=relatorios&pg=clientes">Clientes</a>
                   <a class="dropdown-item" href="home.php?fd=relatorios&pg=lucros">Lucros</a>
+		       	</div>
+		    </li>
+
+		   	<li class="nav-item dropdown">
+		    	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-list" aria-hidden="true"></i> Listas
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="home.php?fd=lists&pg=produtos">Usuários</a>
+                  <a class="dropdown-item" href="home.php?fd=lists&pg=materiaprimas">Matérias-Prima</a>
+                  <a class="dropdown-item" href="home.php?fd=lists&pg=clientes">Produtos</a>
+                  <a class="dropdown-item" href="home.php?fd=lists&pg=tamanho">Tamanhos</a>
 		       	</div>
 		    </li>
 
