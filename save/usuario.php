@@ -64,7 +64,7 @@
 			$query->bindParam(2, $login);
 			$query->bindParam(3, $senha);
 			$query->bindParam(4, $email);
-			$query->bindParam(5, $stauts);
+			$query->bindParam(5, $status);
 			$query->bindParam(6, $tipoUsuario);
 
 			if($query->execute()){

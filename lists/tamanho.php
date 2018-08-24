@@ -4,13 +4,16 @@
 		exit;
 	}
 ?>
+	<h1 class="text-center">Lista de Tamanhos</h1>
+	<br>
+
 	<table class="table table-bordered table-striped">
 		<thead>
 			<tr>
-				<td>Id</td>
+				<td>ID</td>
 				<td>Tamanho</td>
 				<td>Quantidade de Pedaços</td>
-				<td>Quantidade de Sabores</td>
+				<td>Quantidade Máxima de Sabores</td>
 				<td>Opções</td>
 			</tr>
 		</thead>

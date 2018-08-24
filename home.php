@@ -34,7 +34,7 @@
             }
 
             if (empty ($pg)){
-                $page = "principal.php";
+                $page = "dashboard.php";
             }else{
                 $page = $fd."/".$pg.".php";
             }

@@ -16,6 +16,7 @@
                   <a class="dropdown-item" href="home.php?fd=register&pg=materiaprima">Matéria Prima</a>
                   <a class="dropdown-item" href="home.php?fd=register&pg=usuario">Usuário</a>
                   <a class="dropdown-item" href="home.php?fd=register&pg=tamanho">Tamanho</a>
+                  <a class="dropdown-item" href="home.php?fd=register&pg=pizza">Pizza</a>
 		        </div>
 		   	</li>
 
@@ -38,7 +39,7 @@
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="home.php?fd=lists&pg=produtos">Usuários</a>
                   <a class="dropdown-item" href="home.php?fd=lists&pg=materiaprimas">Matérias-Prima</a>
-                  <a class="dropdown-item" href="home.php?fd=lists&pg=clientes">Produtos</a>
+                  <a class="dropdown-item" href="home.php?fd=lists&pg=produto">Produtos</a>
                   <a class="dropdown-item" href="home.php?fd=lists&pg=tamanho">Tamanhos</a>
 		       	</div>
 		    </li>

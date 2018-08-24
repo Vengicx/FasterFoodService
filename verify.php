@@ -1,18 +1,18 @@
 <?php
     session_start();
 
-    if(isset ($_SESSION["attempts"])){
-        $_SESSION["attempts"]++;
+    // if(isset ($_SESSION["attempts"])){
+    //     $_SESSION["attempts"]++;
         
-    }else{
-        $_SESSION["attempts"] = 1;
+    // }else{
+    //     $_SESSION["attempts"] = 1;
 
-    }
+    // }
 
-    if($_SESSION["attempts"] > 10){
-        echo "<script>alert('Você errou as credenciais 10 vezes, tente novamente mais tarde!');history.back();</script>";
-        exit;
-    }
+    // if($_SESSION["attempts"] > 10){
+    //     echo "<script>alert('Você errou as credenciais 10 vezes, tente novamente mais tarde!');history.back();</script>";
+    //     exit;
+    // }
 
     if($_POST){
 
@@ -51,6 +51,9 @@
             }elseif($data->ativo != "1"){
                 echo "<script>alert('Este usuário não está ativo');history.back();</script>";
 
+            }elseif(!password_verify($passwordUser, $data->senha)){
+                echo "<script>alert('Esta senha está incorreta');history.back();</script>";
+
             }else{
                 $_SESSION["system"] = array("id"=>$data->id,"login"=>$data->login,"nome"=>$data->nome);
                 header("Location: home.php");
@@ -59,5 +62,7 @@
 
         }
 
+    }else{
+        header("Location: index.php");
     }
 
