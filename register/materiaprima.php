@@ -20,7 +20,7 @@
 	<br>
 
 	<label for="quantidade">Quantidade</label>
-	<input type="number" name="quantidade" class="form-control">
+	<input type="number" name="quantidade" class="form-control" id="quantidade">
 	<br>
 
 	<label for="precoCompra">Preço de Compra</label>
@@ -31,22 +31,25 @@
 	<input type="number" name="qtdPedacos" class="form-control" id="qtdPedacos" onkeyup="calcular()">
 	<br>
 
-	<label for="precoPedaco">Preço por Pedaço:</label>
-	<input type="number" name="precoPedaco" class="form-control" id="resultado" readonly>
+	<label for="precoPorPedaco">Preço por Pedaço:</label>
+	<input type="number" name="precoPorPedaco" class="form-control" id="resultado" readonly>
 	<br>
 
 	<button type="submit" class="btn btn-success">
-		Gravar/Alterar Tamanho
+		Gravar/Alterar Matéria-Prima
 	</button>
 
 </form>
 
 <script type="text/javascript">
-	function calcular() {
-		var qtdPedacos = parseInt(document.getElementById('qtdPedacos').value);
+	function calcular(){
+		var quantidade = parseInt(document.getElementById('quantidade').value);
 		var precoCompra = parseInt(document.getElementById('precoCompra').value);
-		var preco = parseFloat(precoCompra / qtdPedacos).toFixed(2);
 
+		var precoUnitario = parseFloat(precoCompra / quantidade);
+		
+		var qtdPedacos = parseInt(document.getElementById('qtdPedacos').value);
+		var preco = parseFloat(precoUnitario / qtdPedacos).toFixed(2);
 		var resultado = document.getElementById('resultado').value = preco;
 
 	}

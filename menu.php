@@ -26,7 +26,7 @@
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="home.php?fd=relatorios&pg=produtos">Produtos Vendidos</a>
-                  <a class="dropdown-item" href="home.php?fd=relatorios&pg=materiaprimas">Matéria-Prima Usadas</a>
+                  <a class="dropdown-item" href="home.php?fd=relatorios&pg=materiaprima">Matéria-Prima Usadas</a>
                   <a class="dropdown-item" href="home.php?fd=relatorios&pg=clientes">Clientes</a>
                   <a class="dropdown-item" href="home.php?fd=relatorios&pg=lucros">Lucros</a>
 		       	</div>
@@ -38,7 +38,7 @@
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="home.php?fd=lists&pg=produtos">Usuários</a>
-                  <a class="dropdown-item" href="home.php?fd=lists&pg=materiaprimas">Matérias-Prima</a>
+                  <a class="dropdown-item" href="home.php?fd=lists&pg=materiaprima">Matérias-Prima</a>
                   <a class="dropdown-item" href="home.php?fd=lists&pg=produto">Produtos</a>
                   <a class="dropdown-item" href="home.php?fd=lists&pg=tamanho">Tamanhos</a>
 		       	</div>

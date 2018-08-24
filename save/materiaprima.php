@@ -4,7 +4,7 @@
 		exit;
 	}
 
-	$id = $nome = $precoCompra = $quantidade = $precoPedaco = $qtdPedacos = "";
+	$id = $nome = $precoCompra = $quantidade = $precoPorPedaco = $qtdPedacos = "";
 
 	if($_POST){
 		if(isset($_POST["id"])){
@@ -27,8 +27,8 @@
 			$quantidade = trim ($_POST["quantidade"]);
 		}
 
-		if(isset($_POST["precoPedaco"])){
-			$precoPedaco = trim ($_POST["precoPedaco"]);
+		if(isset($_POST["precoPorPedaco"])){
+			$precoPorPedaco = trim ($_POST["precoPorPedaco"]);
 		}
 
 		$nome = strtoupper($nome);
@@ -37,28 +37,33 @@
 			if(empty($nome)){
 				echo "<script>alert('Preencha o nome');history.back();</script>";
 				exit;
+
 			}elseif(empty($precoCompra)){
 				echo "<script>alert('Preencha o preço de compra');history.back();</script>";
 				exit;
+
 			}elseif(empty($quantidade)){
 				echo "<script>alert('Preencha a quantidade');history.back();</script>";
 				exit;
-			}elseif(empty($precoPedaco)){
+
+			}elseif(empty($precoPorPedaco)){
 				echo "<script>alert('Preencha o preço por pedaço');history.back();</script>";
 				exit;
-			}
+
 			}elseif(empty($qtdPedacos)){
 				echo "<script>alert('Preencha a quantidade de pedaços');history.back();</script>";
 				exit;
+
 			}else{
 				include "./app/connect.php";
+				echo "$nome<br>$precoCompra<br>$quantidade<br>$precoPorPedaco<br>$qtdPedacos";
 
-				$sql = "insert into materiaprima (id, nome, precoCompra, quantidade, precoPorPedaco) values (NULL, ?, ?, ?, ?, ?)";
+				$sql = "insert into materiaprima (id, nome, precoCompra, quantidade, precoPorPedaco, qtdPedacos) values (NULL, ?, ?, ?, ?, ?)";
 				$query = $pdo->prepare($sql);
 				$query->bindParam(1, $nome);
 				$query->bindParam(2, $precoCompra);
 				$query->bindParam(3, $quantidade);
-				$query->bindParam(4, $precoPedaco);
+				$query->bindParam(4, $precoPorPedaco);
 				$query->bindParam(5, $qtdPedacos);
 
 				if($query->execute()){
@@ -71,10 +76,10 @@
 
 				}
 
+			}//fim do if $nome
 
-			}
+		}//fim do if empty id
 
-
-	}else{
+	}else{//fim do $_POST
 		header("Location: home.php");
 	}
