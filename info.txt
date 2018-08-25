@@ -1,0 +1,7 @@
+		<option value="">Selecione um tipo de usuário</option>
+		<option value="2">Garçom</option>
+		<option value="3">Cliente</option>
+		<option value="4">Caixa</option>
+		<option value="5">Cozinha</option>
+		<option value="6">Entregador</option>
+		<option value="1">Administrador</option>

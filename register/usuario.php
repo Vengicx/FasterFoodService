@@ -4,7 +4,33 @@
 		exit;
 	}
 
-	$id = $nome = $login = $email = $ativo = "";
+	$id = $nome = $login = $email = $status = $tipoUsuario = "";
+
+	if($_GET["id"]){
+		$id = trim($_GET["id"]);
+
+		require_once("./app/connect.php");
+
+		$sql = "select * from usuario where id = ? limit 1";
+		$query = $pdo->prepare($sql);
+		$query->bindParam(1, $id);
+
+		$query->execute();
+
+		$data = $query->fetch(PDO::FETCH_OBJ);
+			
+			$nome = $data->nome;
+			$login = $data->login;
+			$email = $data->email;
+			$ativo = $data->ativo;
+			$tipoUsuario = $data->tipoUsuario;
+
+			echo "<script>
+					document.getElementsByTagName('select').value = $tipoUsuario;
+					
+
+				</script>";
+	}
 
 ?>
 <h1>Cadastro de Usuário</h1>
@@ -34,15 +60,15 @@
 	<br>
 
 	<label for="tipoUsuario">Tipo Usuário:</label>
-	<select name="tipoUsuario" id="ativo" class="form-control" required data-parsley-required-message="Selecione uma opção">
-		<option value="">Selecione um tipo de usuário</option>
-		<option value="2">Garçom</option>
-		<option value="3">Cliente</option>
-		<option value="4">Caixa</option>
-		<option value="5">Cozinha</option>
-		<option value="6">Entregador</option>
-		<option value="1">Administrador</option>
-	</select>
+		<select name="tipoUsuario" id="tipoUsuario" class="form-control" required data-parsley-required-message="Selecione uma opção" value="<?=$tipoUsuario?>">
+			<option value="">Selecione um tipo de usuário</option>
+			<option value="2">Garçom</option>
+			<option value="3">Cliente</option>
+			<option value="4">Caixa</option>
+			<option value="5">Cozinha</option>
+			<option value="6">Entregador</option>
+			<option value="1">Administrador</option>
+		</select>
 	<br>
 
 	<label class="form-check-label">Status:</label>

@@ -37,7 +37,7 @@
                 <i class="fa fa-list" aria-hidden="true"></i> Listas
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="home.php?fd=lists&pg=produtos">Usuários</a>
+                  <a class="dropdown-item" href="home.php?fd=lists&pg=usuario">Usuários</a>
                   <a class="dropdown-item" href="home.php?fd=lists&pg=materiaprima">Matérias-Prima</a>
                   <a class="dropdown-item" href="home.php?fd=lists&pg=produto">Produtos</a>
                   <a class="dropdown-item" href="home.php?fd=lists&pg=tamanho">Tamanhos</a>
