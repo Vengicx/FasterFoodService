@@ -33,52 +33,68 @@
 
 		$nome = strtoupper($nome);
 
-		if(empty($id)){
-			if(empty($nome)){
-				echo "<script>alert('Preencha o nome');history.back();</script>";
-				exit;
+		if(empty($nome)){
+			echo "<script>alert('Preencha o nome');history.back();</script>";
+			exit;
 
-			}elseif(empty($precoCompra)){
-				echo "<script>alert('Preencha o preço de compra');history.back();</script>";
-				exit;
+		}elseif(empty($precoCompra)){
+			echo "<script>alert('Preencha o preço de compra');history.back();</script>";
+			exit;
 
-			}elseif(empty($quantidade)){
-				echo "<script>alert('Preencha a quantidade');history.back();</script>";
-				exit;
+		}elseif(empty($quantidade)){
+			echo "<script>alert('Preencha a quantidade');history.back();</script>";
+			exit;
 
-			}elseif(empty($precoPorPedaco)){
-				echo "<script>alert('Preencha o preço por pedaço');history.back();</script>";
-				exit;
+		}elseif(empty($precoPorPedaco)){
+			echo "<script>alert('Preencha o preço por pedaço');history.back();</script>";
+			exit;
 
-			}elseif(empty($qtdPedacos)){
-				echo "<script>alert('Preencha a quantidade de pedaços');history.back();</script>";
-				exit;
+		}elseif(empty($qtdPedacos)){
+			echo "<script>alert('Preencha a quantidade de pedaços');history.back();</script>";
+			exit;
+			
+		}elseif(empty($id)){
+			include "./app/connect.php";
+
+			$sql = "insert into materiaprima (id, nome, precoCompra, quantidade, precoPorPedaco, qtdPedacos) values (NULL, ?, ?, ?, ?, ?)";
+			$query = $pdo->prepare($sql);
+			$query->bindParam(1, $nome);
+			$query->bindParam(2, $precoCompra);
+			$query->bindParam(3, $quantidade);
+			$query->bindParam(4, $precoPorPedaco);
+			$query->bindParam(5, $qtdPedacos);
+
+			if($query->execute()){
+				echo "<script>alert('Matéria-Prima cadastrada com sucesso!');</script>";
+				header("Location: home.php?fd=lists&pg=materiaprima");
 
 			}else{
-				include "./app/connect.php";
-				echo "$nome<br>$precoCompra<br>$quantidade<br>$precoPorPedaco<br>$qtdPedacos";
+				echo "<script>alert('Erro ao cadastrar Matéria-Prima');history.back();</script>";
+				exit;
+			}
 
-				$sql = "insert into materiaprima (id, nome, precoCompra, quantidade, precoPorPedaco, qtdPedacos) values (NULL, ?, ?, ?, ?, ?)";
-				$query = $pdo->prepare($sql);
-				$query->bindParam(1, $nome);
-				$query->bindParam(2, $precoCompra);
-				$query->bindParam(3, $quantidade);
-				$query->bindParam(4, $precoPorPedaco);
-				$query->bindParam(5, $qtdPedacos);
+		}else{
+			include "./app/connect.php";
 
-				if($query->execute()){
-					echo "<script>alert('Matéria-Prima cadastrada com sucesso!');</script>";
-					header("Location: home.php?fd=lists&pg=materiaprima");
+			$sql = "update materiaprima set nome = ?, precoCompra = ?, quantidade = ?, precoPorPedaco = ?, qtdPedacos = ? where id = ? limit 1";
+			$query = $pdo->prepare($sql);
+			$query->bindParam(1, $nome);
+			$query->bindParam(2, $precoCompra);
+			$query->bindParam(3, $quantidade);
+			$query->bindParam(4, $precoPorPedaco);
+			$query->bindParam(5, $qtdPedacos);
+			$query->bindParam(6, $id);
 
-				}else{
-					echo "<script>alert('Erro ao cadastrar Matéria-Prima');history.back();</script>";
-					exit;
+			if($query->execute()){
+				echo "<script>alert('Matéria-Prima alterada com sucesso!');</script>";
+				header("Location: home.php?fd=lists&pg=materiaprima");
 
-				}
+			}else{
+				echo "<script>alert('Erro ao cadastrar Matéria-Prima');history.back();</script>";
+				exit;
+			}
 
-			}//fim do if $nome
-
-		}//fim do if empty id
+		}//fim do else
 
 	}else{//fim do $_POST
 		header("Location: home.php");

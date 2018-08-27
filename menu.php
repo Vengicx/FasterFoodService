@@ -5,6 +5,10 @@
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
+	<?php
+		$usuarioLogado = $_SESSION["system"]["nome"];
+	?>
+	<a>Usuário Logado: <?=$usuarioLogado?></a>
     <div class="collapse navbar-collapse">
     	<ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">

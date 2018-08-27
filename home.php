@@ -35,13 +35,17 @@
 
             if (empty ($pg)){
                 $page = "dashboard.php";
+
             }else{
                 $page = $fd."/".$pg.".php";
+
             }
             if(file_exists($page)){
                 include $page;
+
             }else{
                 include "error.php";
+                
             }
 
         ?>

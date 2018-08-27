@@ -4,7 +4,7 @@
 		exit;
 	}
 
-	$id = $nome = $qtdPedacos = $qtdSabores = "";
+	$id = $tamanho = $qtdPedacos = $qtdSabores = "";
 
 	if($_POST){
 		if(isset($_POST["id"])){
@@ -12,7 +12,7 @@
 		}
 
 		if(isset($_POST["nome"])){
-			$nome = trim ($_POST["nome"]);
+			$tamanho = trim ($_POST["nome"]);
 		}
 
 		if(isset($_POST["qtdPedacos"])){
@@ -23,22 +23,47 @@
 			$qtdSabores = trim ($_POST["qtdSabores"]);
 		}
 
+		
+
+
+
 		include "./app/connect.php";
 
-		$sql = "insert into tamanho (tamanho, qtdPedacos, qtdSabores) values (?, ?, ?)";
-		$query = $pdo->prepare($sql);
-		$query->bindParam(1, $nome);
-		$query->bindParam(2, $qtdPedacos);
-		$query->bindParam(3, $qtdSabores);
+		if(empty($id)){
+			$sql = "insert into tamanho (tamanho, qtdPedacos, qtdSabores) values (?, ?, ?)";
+			$query = $pdo->prepare($sql);
+			$query->bindParam(1, $tamanho);
+			$query->bindParam(2, $qtdPedacos);
+			$query->bindParam(3, $qtdSabores);
 
-		if($query->execute()){
-			echo "<script>alert('Tamanho registrado com sucesso');</script>";
-			header("Location: home.php?fd=lists&pg=tamanho");
+			if($query->execute()){
+				echo "<script>alert('Tamanho registrado com sucesso');</script>";
+				header("Location: home.php?fd=lists&pg=tamanho");
+
+			}else{
+				echo "<script>alert('Erro ao registrar tamanho');history.back();</script>";
+
+			}
 
 		}else{
-			echo "<script>alert('Erro ao registrar tamanho');history.back();</script>";
+			$sql = "update tamanho set tamanho = ?, qtdPedacos = ?, qtdSabores = ? where id = ? limit 1";
+			$query = $pdo->prepare($sql);
+			$query->bindParam(1, $tamanho);
+			$query->bindParam(2, $qtdPedacos);
+			$query->bindParam(3, $qtdSabores);
+			$query->bindParam(4, $id);
 
+			if($query->execute()){
+				echo "<script>alert('Tamanho alterado com sucesso!');</script>";
+				header("Location: home.php?fd=lists&pg=tamanho");
+
+			}else{
+				echo "<script>alert('Erro ao alterar tamanho');</script>";
+				exit;
+			}
 		}
+	
+
 	}else{
 		include "./app/invalidRequest.php";
 	}
