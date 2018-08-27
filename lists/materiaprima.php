@@ -42,9 +42,30 @@
 				<td>R$ $precoPorPedaco</td>
 				<td>$quantidade</td>
 				<td>$qtdPedacos</td>
-				<td><a class='btn btn-success' href='home.php?fd=register&pg=materiaprima&id=$id'><i class='fa fa-pencil'</i></a></td>
+				<td>
+					<a class='btn btn-success' href='home.php?fd=register&pg=materiaprima&id=$id'><i class='fa fa-pencil'></i></a>
+					<a class='btn btn-primary' href='#' data-toggle='modal' data-target='#exampleModalCenter'><i class='fa fa-plus'></i></a>
+				</td>
 			  </tr>";
 
 	}
 ?>
 	</table>
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Adicionar Quantidade de Produto</h5>
+	      		</div>
+	      		<div class="modal-body">
+
+
+
+	      		</div>
+	      		<div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+			        <button type="button" class="btn btn-primary">Salvar alterações</button>
+	    		</div>
+	    	</div>
+	  </div>
+	</div>

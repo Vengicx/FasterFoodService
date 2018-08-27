@@ -37,7 +37,7 @@
 				<td>$tamanho</td>
 				<td>$qtdPedacos</td>
 				<td>$qtdSabores</td>
-				<td></td>
+				<td><a class='btn btn-success' href='home.php?fd=register&pg=tamanho&id=$id'><i class='fa fa-pencil'></i></a></td>
 			  </tr>";
 
 	}

@@ -32,7 +32,8 @@
 		$query->bindParam(3, $qtdSabores);
 
 		if($query->execute()){
-			echo "<script>alert('Tamanho registrado com sucesso');history.back();</script>";
+			echo "<script>alert('Tamanho registrado com sucesso');</script>";
+			header("Location: home.php?fd=lists&pg=tamanho");
 
 		}else{
 			echo "<script>alert('Erro ao registrar tamanho');history.back();</script>";

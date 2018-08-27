@@ -25,10 +25,10 @@
                 <i class="fa fa-bar-chart" aria-hidden="true"></i> Relatórios
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="home.php?fd=relatorios&pg=produtos">Produtos Vendidos</a>
-                  <a class="dropdown-item" href="home.php?fd=relatorios&pg=materiaprima">Matéria-Prima Usadas</a>
-                  <a class="dropdown-item" href="home.php?fd=relatorios&pg=clientes">Clientes</a>
-                  <a class="dropdown-item" href="home.php?fd=relatorios&pg=lucros">Lucros</a>
+                  <a class="dropdown-item" href="home.php?fd=reports&pg=produtos">Produtos Vendidos</a>
+                  <a class="dropdown-item" href="home.php?fd=reports&pg=materiaprima">Matéria-Prima Usadas</a>
+                  <a class="dropdown-item" href="home.php?fd=reports&pg=clientes">Clientes</a>
+                  <a class="dropdown-item" href="home.php?fd=reports&pg=lucros">Lucros</a>
 		       	</div>
 		    </li>
 

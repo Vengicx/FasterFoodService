@@ -68,7 +68,8 @@
 			$query->bindParam(6, $tipoUsuario);
 
 			if($query->execute()){
-				echo "<script>alert('Usuário cadastrado com sucesso');history.back();</script>";
+				echo "<script>alert('Usuário cadastrado com sucesso');</script>";
+				header("Location: home.php?fd=lists&pg=usuario");
 
 			}else{
 				echo "<script>alert('Erro ao cadastrar usuário');history.back();</script>";

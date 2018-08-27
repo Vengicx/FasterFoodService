@@ -4,10 +4,28 @@
 		exit;
 	}
 
-	$id = $nome = $qtdPedacos = $qtdSabores = "";
+	$id = $tamanho = $qtdPedacos = $qtdSabores = "";
+
+	if(isset($_GET["id"])){
+		$id = $_GET["id"];
+
+		require_once "./app/connect.php";
+
+		$sql = "select * from tamanho where id = ? limit 1";
+		$query = $pdo->prepare($sql);
+		$query->bindParam(1, $id);
+		$query->execute();
+
+		$data = $query->fetch(PDO::FETCH_OBJ);
+			$id = $data->id;
+			$tamanho = $data->tamanho;
+			$qtdPedacos = $data->qtdPedacos;
+			$qtdSabores = $data->qtdSabores;
+
+	}
 
 ?>
-<h1>Cadastro de Tamanho de Produto</h1>
+<h1 class="text-center">Cadastro de Tamanho de Produto</h1>
 
 <form method="post" action="home.php?fd=save&pg=tamanho" data-parsley-validate>
 
@@ -17,7 +35,7 @@
 
 	<label for="nome">Nome do Tamanho:</label>
 	<input type="text" name="nome" class="form-control"
-	required data-parsley-required-message="Por favor, preencha o nome do tamanho" value="<?=$nome;?>">
+	required data-parsley-required-message="Por favor, preencha o nome do tamanho" value="<?=$tamanho;?>">
 	<br>
 
 	<label for="qtdPedacos">Quantidade de pedaços:</label>

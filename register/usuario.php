@@ -6,7 +6,7 @@
 
 	$id = $nome = $login = $email = $status = $tipoUsuario = "";
 
-	if($_GET["id"]){
+	if(isset($_GET["id"])){
 		$id = trim($_GET["id"]);
 
 		require_once("./app/connect.php");
@@ -24,16 +24,10 @@
 			$email = $data->email;
 			$ativo = $data->ativo;
 			$tipoUsuario = $data->tipoUsuario;
-
-			echo "<script>
-					document.getElementsByTagName('select').value = $tipoUsuario;
-					
-
-				</script>";
 	}
 
 ?>
-<h1>Cadastro de Usuário</h1>
+<h1 class="text-center">Cadastro de Usuário</h1>
 
 <form method="post" action="home.php?fd=save&pg=usuario" data-parsley-validate>
 
@@ -85,5 +79,5 @@
 	<button type="submit" class="btn btn-success">
 		Gravar/Alterar cadastro
 	</button>
-
 </form>
+
