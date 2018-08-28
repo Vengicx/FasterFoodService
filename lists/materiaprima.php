@@ -3,6 +3,7 @@
 		echo "Acesso negado";
 		exit;
 	}
+
 ?>
 	<h1 class="text-center">Lista de Matéria-Prima</h1>
 	<br>
@@ -44,7 +45,7 @@
 				<td>$qtdPedacos</td>
 				<td>
 					<a class='btn btn-success' href='home.php?fd=register&pg=materiaprima&id=$id'><i class='fa fa-pencil'></i></a>
-					<a class='btn btn-primary' href='#' data-toggle='modal' data-target='#exampleModalCenter'><i class='fa fa-plus'></i></a>
+					<a class='btn btn-primary' href='#' data-toggle='modal' onclick='adicionarQuantidade($id, $quantidade)' data-target='#exampleModalCenter'><i class='fa fa-plus'></i></a>
 				</td>
 			  </tr>";
 
@@ -58,14 +59,29 @@
 					<h5 class="modal-title">Adicionar Quantidade de Produto</h5>
 	      		</div>
 	      		<div class="modal-body">
-
-
-
+	      			<label for="quantidade">Quantidade </label>
+	      			<input type="text" name="quantidade" class="form-control">
 	      		</div>
 	      		<div class="modal-footer">
 			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-			        <button type="button" class="btn btn-primary">Salvar alterações</button>
+			        <button type="submit" onclick="adicionarQuantidade()" class="btn btn-primary">Adicionar</button>
 	    		</div>
 	    	</div>
 	  </div>
 	</div>
+
+<script>
+function adicionarQuantidade(id, quantidade){
+    $.ajax({
+        url: "./app/adicionarQuantidade.php",
+        method: "post",
+        dataType: "json",
+        id : id,
+        quantidade : quantidade,
+        success: users => {
+        window.reload();
+        },
+    });
+    
+}
+</script>

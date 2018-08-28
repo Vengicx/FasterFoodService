@@ -22,10 +22,17 @@
 		if(isset($_POST["qtdSabores"])){
 			$qtdSabores = trim ($_POST["qtdSabores"]);
 		}
-
 		
-
-
+		if(empty($tamanho)){
+			echo "<script>alert('Preencha o nome do tamanho');history.back();</script>";
+			exit;
+		}elseif(empty($qtdPedacos)){
+			echo "<script>alert('Preencha a quantidade máxima de pedaços');history.back();</script>";
+			exit;
+		}elseif(empty($qtdSabores)){
+			echo "<script>alert('Preencha a quantidade máxima de sabores');history.back();</script>";
+			exit;
+		}
 
 		include "./app/connect.php";
 

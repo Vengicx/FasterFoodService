@@ -52,8 +52,9 @@
 		}elseif(empty($qtdPedacos)){
 			echo "<script>alert('Preencha a quantidade de pedaços');history.back();</script>";
 			exit;
-			
-		}elseif(empty($id)){
+		}
+		
+		if(empty($id)){
 			include "./app/connect.php";
 
 			$sql = "insert into materiaprima (id, nome, precoCompra, quantidade, precoPorPedaco, qtdPedacos) values (NULL, ?, ?, ?, ?, ?)";

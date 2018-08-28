@@ -56,8 +56,11 @@
 		}elseif(empty($tipoUsuario)){
 			echo "<script>alert('Preencha o tipo de usuário');history.back();</script>";
 			exit;
-		}elseif(empty($id)){
+		}
 
+		include "./app/connect.php";
+		
+		if(empty($id)){
 			$sql = "insert into usuario (nome, login, senha, email, ativo, tipoUsuario) values (?, ?, ?, ?, ?, ?)";
 			$query = $pdo->prepare($sql);
 			$query->bindParam(1, $nome);
