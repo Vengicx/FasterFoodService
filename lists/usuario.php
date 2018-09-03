@@ -36,7 +36,8 @@
 				<td>$nome</td>
 				<td>$ativo</td>
 				<td id='tipoUsuario'>$tipoUsuario</td>
-				<td><a class='btn btn-success' href='home.php?fd=register&pg=usuario&id=$id'><i class='fa fa-pencil'</i></a></td>
+				<td><a class='btn btn-success' href='home.php?fd=register&pg=usuario&id=$id'><i class='fa fa-pencil'></i></a>
+					<a href=\"javascript:excluir($id,'$nome')\" class='btn btn-danger'><i class='fa fa-trash'></i></a></td>
 			  </tr>";
 
 	}
@@ -57,7 +58,15 @@
 
 	}
 
-		window.onload = substituirValor();
-
-
+	window.onload = substituirValor();
+	
+	function excluir(id,nome) {
+		//pergunta e confirmar
+		if ( confirm( "Deseja realmente excluir "+nome+" ? ") ) {
+			//mandar excluir
+			link = "home.php?fd=delete&pg=usuario&id="+id;
+			//chamar o link
+			location.href = link;
+		}
+	}
 </script>

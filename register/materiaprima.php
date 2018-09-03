@@ -54,7 +54,7 @@
 	<br>
 
 	<label for="precoPorPedaco">Preço por Pedaço:</label>
-	<input type="number" name="precoPorPedaco" value="<?=$precoPorPedaco?>" class="form-control" id="resultado" readonly>
+	<input type="number" name="precoPorPedaco" value="<?=$precoPorPedaco?>" class="form-control" id="resultado" readonly value="<?=$precoPorPedaco?>">
 	<br>
 
 	<button type="submit" class="btn btn-success">
@@ -75,5 +75,4 @@
 		var resultado = document.getElementById('resultado').value = preco;
 
 	}
-
 </script>
