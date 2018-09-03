@@ -74,7 +74,7 @@
 
 		}else{
 			$sql = "update produto set nome = ?, precoCompra = ?, precoVenda = ?, quantidade = ? where id = ? limit 1";
-			$query = $pdo->execute($sql);
+			$query = $pdo->prepare($sql);
 			$query->bindParam(1, $nome);
 			$query->bindParam(2, $precoCompra);
 			$query->bindParam(3, $precoVenda);
