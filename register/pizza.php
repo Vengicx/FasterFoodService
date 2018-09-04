@@ -4,7 +4,7 @@
 		exit;
 	}
 
-$id = $nome = $login = $email = $status = $tipoUsuario = "";
+$id = $nome = $precoVenda = $tamanho = $status = "";
 
 	if(isset($_GET["id"])){
 		$id = trim($_GET["id"]);
@@ -18,29 +18,28 @@ $id = $nome = $login = $email = $status = $tipoUsuario = "";
 		$query->execute();
 
 		$data = $query->fetch(PDO::FETCH_OBJ);
-			
+			$id = $data->id;
 			$nome = $data->nome;
-			$login = $data->login;
-			$email = $data->email;
-			$ativo = $data->ativo;
-			$tipoUsuario = $data->tipoUsuario;
+			$precoVenda = $data->precoVenda;
+			$tamanho = $data->tamanho;
+			
 	}
 
 ?>
-<h1 class="text-center">Cadastro de Usuário</h1>
+<h1 class="text-center">Cadastro de Nova Pizza</h1>
 
-<form method="post" action="home.php?fd=save&pg=usuario" data-parsley-validate>
+<form method="post" action="home.php?fd=save&pg=pizza" data-parsley-validate>
 
 	<label for="id">ID:</label>
 	<input type="text" name="id" class="form-control" readonly value="<?=$id;?>">
 	<br>
 
-	<label for="nome">Nome</label>
+	<label for="nome">Nome:</label>
 	<input type="text" name="nome" class="form-control"
 	required data-parsley-required-message="Por favor, preencha o nome da pizza" value="<?=$nome;?>">
 	<br>
 
-	<label for="precoVenda">Preço de Venda</label>
+	<label for="precoVenda">Preço de Venda:</label>
 	<input type="text" name="precoVenda" class="form-control" required data-parsley-required-message="Por favor, preencha o preço de venda" value="<?=$precoVenda;?>">
 	<br>
 
@@ -57,27 +56,14 @@ $id = $nome = $login = $email = $status = $tipoUsuario = "";
 				while($data = $query->fetch(PDO::FETCH_OBJ)){
 					$tamanho = $data->tamanho;
 					
-					
 					echo "<option value=\"$tamanho\">$tamanho</option>";
 				}
 
 			?>
 		</select>
 	<br>
-
-	<label class="form-check-label">Status:</label>
-	<div class="form-radio">
-		<div class="form-check">
-	  		<input class="form-check-input" type="radio" name="status" value="1" checked>
-	  		<label class="form-check-label" for="ativo">Ativo</label>
-	  		<br>
-	  		<input class="form-check-input" type="radio" name="status" value="2">
-	  		<label class="form-check-label" for="inativo">Inativo</label>
-		</div>
-	</div>
-	<br>
 	<button type="submit" class="btn btn-success">
-		Gravar/Alterar cadastro
+		Gravar/Alterar Pizza
 	</button>
 </form>
 

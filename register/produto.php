@@ -46,7 +46,7 @@
 	<input type="text" name="precoCompra" class="form-control" value="<?=$precoCompra?>"><!-- Alterar para float-->
 	<br>
 
-	<label for="precoCompra">Preço de Venda</label>
+	<label for="precoVenda">Preço de Venda</label>
 	<input type="text" name="precoVenda" class="form-control" value="<?=$precoVenda?>"><!-- Alterar para float-->
 	<br>
 

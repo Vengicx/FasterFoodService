@@ -44,6 +44,7 @@
                   <a class="dropdown-item" href="home.php?fd=lists&pg=usuario">Usuários</a>
                   <a class="dropdown-item" href="home.php?fd=lists&pg=materiaprima">Matérias-Prima</a>
                   <a class="dropdown-item" href="home.php?fd=lists&pg=produto">Produtos</a>
+                  <a class="dropdown-item" href="home.php?fd=lists&pg=pizza">Tamanhos</a>
                   <a class="dropdown-item" href="home.php?fd=lists&pg=tamanho">Tamanhos</a>
 		       	</div>
 		    </li>
